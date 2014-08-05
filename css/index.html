@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example Fullscreen API</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="jquery.fittext.js"></script>
+    <script>
+        $(document).ready(function () {
+            function fullScreen(element) {
+                if (element.requestFullScreen) {
+                    element.requestFullScreen();
+                } else if (element.webkitRequestFullScreen) {
+                    element.webkitRequestFullScreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                }
+            }
+
+            function fullScreenCancel() {
+                if (document.requestFullScreen) {
+                    document.requestFullScreen();
+                } else if (document.webkitRequestFullScreen) {
+                    document.webkitRequestFullScreen();
+                } else if (document.mozRequestFullScreen) {
+                    document.mozRequestFullScreen();
+                }
+            }
+
+            $("#text1").fitText();
+            $("#text2").fitText(1.1, { minFontSize: '30px', maxFontSize: '65px' });
+            $("#text3").fitText(1.1, { minFontSize: '15px', maxFontSize: '45px' });
+
+            $('html').keydown(function (event) {
+                if (event.keyCode == 70) {
+                    var html = document.documentElement;
+                    fullScreen(html);
+                }
+                if (event.keyCode == 27) {
+                    fullScreenCancel();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h1 id="text1">Fullscreen API</h1>
+
+<h1 id="text2">Press F to enter full-screen mode</h1>
+
+<h1 id="text3">Press Esc to exit full-screen mode</h1>
+</body>
+</html>
