@@ -13,3 +13,49 @@ h1 {
     text-shadow: #253e45 -1px 1px 0, #253e45 -2px 2px 0, #d45848 -3px 3px 0, #d45848 -4px 4px 0;
     margin: 5% auto 5%;
 }
+.map {
+  overflow: auto;
+  width: auto;
+}
+
+.map .sector {
+  display: inline-block;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: #000;
+  border: 1px solid #060;
+  background: #f1fff1;
+  transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  font-size: 10px;
+}
+
+.map .sector:hover {
+  background:#aaffaa;
+  cursor: pointer;
+}
+.map .row {
+  margin-top: -16px;
+  margin-left: -35px;
+  white-space: nowrap;
+}
+.map .odd {
+  margin-left: 1px;
+}
+
+.neighbors {
+  position: fixed;
+  top: 5px;
+  left: 99%;
+  width: auto;
+  padding: 10px;
+  margin-left: -60px;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  border: 2px solid #060; 
+}
